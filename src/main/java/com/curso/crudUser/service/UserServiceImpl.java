@@ -30,8 +30,8 @@ public class UserServiceImpl implements UserService {
 	}
 
 	@Override
-	public void save(User theEmployee) {
-		userDAO.save(theEmployee);
+	public void save(User theUser) {
+		userDAO.save(theUser);
 		
 	}
 

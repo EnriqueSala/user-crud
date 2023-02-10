@@ -19,7 +19,6 @@ import com.curso.crudUser.service.UserService;
 
 @RestController
 @RequestMapping("/api")
-@CrossOrigin(origins = "*", methods= {RequestMethod.GET,RequestMethod.POST})
 public class UserController {
 	
 	private UserService userService;
@@ -42,7 +41,7 @@ public class UserController {
 		return user;
 	}
 	@PostMapping("/user")
-	public User postUser(User theUser) {
+	public User postUser(@RequestBody User theUser) {
 		
 		// also just in case they pass an id in JSON ... set id to 0
 		// this is to force a save of new item ... instead of update
