@@ -41,6 +41,7 @@ public class UserController {
 		}
 		return user;
 	}
+	@Transactional
 	@PostMapping("/user")
 	public User postUser(@RequestBody User theUser) {
 		
@@ -53,7 +54,7 @@ public class UserController {
 		
 		return theUser;
 	}
-
+	@Transactional
 	@PutMapping("/user")
 	public User updateUser(@RequestBody User theUser) {
 		
@@ -62,6 +63,7 @@ public class UserController {
 		return theUser;
 	}
 	
+	@Transactional
 	@DeleteMapping("/user/{userId}")
 	public String deleteUser(@PathVariable int userId) {
 		User tempUser = userService.findById(userId);
