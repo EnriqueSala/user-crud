@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.curso.crudUser.entity.User;
 import com.curso.crudUser.service.UserService;
 
+@CrossOrigin
 @RestController
 @RequestMapping("/api")
 public class UserController {
