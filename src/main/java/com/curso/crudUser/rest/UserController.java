@@ -2,6 +2,8 @@ package com.curso.crudUser.rest;
 
 import java.util.List;
 
+import javax.transaction.Transactional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -13,11 +15,9 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
-import javax.transaction.Transactional;
 
 import com.curso.crudUser.entity.User;
 import com.curso.crudUser.service.UserService;
-
 @CrossOrigin
 @RestController
 @RequestMapping("/api")
@@ -42,8 +42,7 @@ public class UserController {
 		}
 		return user;
 	}
-	@Transactional
-	@PostMapping("/user")
+	@PostMapping("/users")
 	public User postUser(@RequestBody User theUser) {
 		
 		// also just in case they pass an id in JSON ... set id to 0
@@ -55,8 +54,9 @@ public class UserController {
 		
 		return theUser;
 	}
+	
+	@PutMapping("/users")
 	@Transactional
-	@PutMapping("/user")
 	public User updateUser(@RequestBody User theUser) {
 		
 		userService.save(theUser);
@@ -64,8 +64,8 @@ public class UserController {
 		return theUser;
 	}
 	
+	@DeleteMapping("/users/{userId}")
 	@Transactional
-	@DeleteMapping("/user/{userId}")
 	public String deleteUser(@PathVariable int userId) {
 		User tempUser = userService.findById(userId);
 		
