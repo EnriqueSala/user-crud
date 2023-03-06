@@ -30,6 +30,11 @@ public class UserServiceImpl implements UserService {
 	}
 
 	@Override
+	public User findByFirstName(String theFirstName) {
+		return userDAO.findByFirstName(theFirstName);
+	}
+
+	@Override
 	public void save(User theUser) {
 		userDAO.save(theUser);
 		
