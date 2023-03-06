@@ -45,6 +45,14 @@ public class UserDAOImpl implements UserDAO {
 				currentSession.get(User.class, theId);
 		return theUser;
 	}
+	@Override
+	public User findByFirstName(String theFirstName) {
+		Session currentSession = entityManager.unwrap(Session.class);
+		
+		User theUser = 
+				currentSession.get(User.class, theFirstName);
+		return theUser;
+	}
 
 	@Override
 	public void save(User theUser) {
