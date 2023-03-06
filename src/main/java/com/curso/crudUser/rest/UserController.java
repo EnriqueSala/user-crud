@@ -42,10 +42,10 @@ public class UserController {
 		return user;
 	}
 	@GetMapping("/users/{firstName}")
-	public User findByFirstName(@PathVariable String firstName) {
+	public User findByFirstName(@PathVariable(value="firstName") String firstName) {
 		User user = userService.findByFirstName(firstName);
 		if (user == null) {
-			throw new UserNotFoundException("User id not found - " + firstName);
+			throw new UserNotFoundException("Name not found - " + firstName);
 		}
 		return user;
 	}
