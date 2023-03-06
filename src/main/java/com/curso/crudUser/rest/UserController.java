@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -42,7 +43,7 @@ public class UserController {
 		}
 		return user;
 	}
-	@GetMapping("/users/{firstName}")
+	@RequestMapping(method = RequestMethod.GET)
 	public User findByFirstName(@RequestParam(value="firstName") String firstName) {
 		User user = userService.findByFirstName(firstName);
 		if (user == null) {
