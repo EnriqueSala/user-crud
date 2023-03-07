@@ -33,6 +33,7 @@ public class UserController {
 	public List<User> findAll(){
 		return userService.findAll();
 	}
+
 	@GetMapping("/users/{userId}")
 	public User findById(@PathVariable int userId) {
 		User user = userService.findById(userId);
@@ -41,13 +42,14 @@ public class UserController {
 		}
 		return user;
 	}
+
 	@GetMapping("/search/{firstName}")
-	public User findByFirstName(@PathVariable String firstName) {
-		User user = userService.findByFirstName(firstName);
-		if (user == null) {
+	public List<User> findByFirstName(@PathVariable String firstName) {
+		List<User> users = userService.findByFirstName(firstName);
+		if (users == null) {
 			throw new UserNotFoundException("Name not found - " + firstName);
 		}
-		return user;
+		return users;
 	}
 
 	@PostMapping("/users/")

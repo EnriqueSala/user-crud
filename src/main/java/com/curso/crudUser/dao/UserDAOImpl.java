@@ -44,12 +44,19 @@ public class UserDAOImpl implements UserDAO {
 		return theUser;
 	}
 	@Override
-	public User findByFirstName(String theFirstName) {
+	public List<User> findByFirstName(String theFirstName) {
+		//get the hibernate session
 		Session currentSession = entityManager.unwrap(Session.class);
 		
-		User theUser = 
-				currentSession.get(User.class, theFirstName);
-		return theUser;
+		//Create a query
+		Query<User> theQuery = 
+				currentSession.createQuery("from User where firstName=:firstName", User.class);
+		theQuery.setParameter("firstName", theFirstName);
+		
+		//Execute the query to get the list of users
+		List<User> users = theQuery.getResultList();
+		
+		return users;
 	}
 
 	@Override

@@ -39,7 +39,7 @@ public class User {
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.email = email;
-		this.address = address;
+		this.address = address;	
 		this.phone = phone;
 	}
 	
