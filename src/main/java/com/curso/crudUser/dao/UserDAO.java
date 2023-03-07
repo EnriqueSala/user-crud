@@ -10,7 +10,7 @@ public interface UserDAO {
 	
 	public User findById(int theId);
 
-	public User findByFirstName(String theFirstName);
+	public List<User> findByFirstName(String theFirstName);
 	
 	public void save(User theUser);
 	
