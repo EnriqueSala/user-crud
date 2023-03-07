@@ -7,8 +7,6 @@ import org.hibernate.Session;
 import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
-
-import com.curso.crudUser.dao.UserDAO;
 import com.curso.crudUser.entity.User;
 
 @Repository

@@ -43,14 +43,15 @@ public class UserController {
 		}
 		return user;
 	}
-	@RequestMapping(method = RequestMethod.GET)
-	public User findByFirstName(@RequestParam(value="firstName") String firstName) {
+	@RequestMapping(value = "/users/{firstName}",method = RequestMethod.GET)
+	public User findByFirstName(@RequestParam("firstName") String firstName) {
 		User user = userService.findByFirstName(firstName);
 		if (user == null) {
 			throw new UserNotFoundException("Name not found - " + firstName);
 		}
 		return user;
 	}
+	
 	@PostMapping("/users")
 	public User postUser(@RequestBody User theUser) {
 		
