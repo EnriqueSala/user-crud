@@ -13,8 +13,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.curso.crudUser.entity.User;
@@ -43,8 +41,8 @@ public class UserController {
 		}
 		return user;
 	}
-	@RequestMapping(value = "/search/{firstName}",method = RequestMethod.GET)
-	public User findByFirstName(@RequestParam("firstName") String firstName) {
+	@GetMapping("/search/{firstName}")
+	public User findByFirstName(@PathVariable String firstName) {
 		User user = userService.findByFirstName(firstName);
 		if (user == null) {
 			throw new UserNotFoundException("Name not found - " + firstName);
