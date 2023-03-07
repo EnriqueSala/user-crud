@@ -43,7 +43,7 @@ public class UserController {
 		}
 		return user;
 	}
-	@RequestMapping(value = "/users/{firstName}",method = RequestMethod.GET)
+	@RequestMapping(value = "/users/search/{firstName}",method = RequestMethod.GET)
 	public User findByFirstName(@RequestParam("firstName") String firstName) {
 		User user = userService.findByFirstName(firstName);
 		if (user == null) {
