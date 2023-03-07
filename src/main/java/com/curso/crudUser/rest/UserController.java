@@ -31,7 +31,7 @@ public class UserController {
 		userService = theUserService;
 	}
 	
-	@GetMapping("/users")
+	@GetMapping("/users/")
 	public List<User> findAll(){
 		return userService.findAll();
 	}
@@ -51,8 +51,8 @@ public class UserController {
 		}
 		return user;
 	}
-	
-	@PostMapping("/users")
+
+	@PostMapping("/users/")
 	public User postUser(@RequestBody User theUser) {
 		
 		// also just in case they pass an id in JSON ... set id to 0
