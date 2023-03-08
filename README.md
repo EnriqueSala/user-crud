@@ -1,5 +1,9 @@
 # User CRUD Back End
 
+[Front end demo](https://user-crud-front.netlify.app/)
+
+Server demo URL: https://user-crud-production-1809.up.railway.app
+
 #### Authentication & authorization
 
 ##### Roles & permission
@@ -112,7 +116,7 @@ Users and their roles are hard coded at the moment so I'll just list them for te
 #### Delete existing user
 
 <details>
-  <summary><code>DELETE</code> <code><b>/</b></code> <code>(deletes a user by the given id)</code></summary>
+  <summary><code>DELETE</code> <code><b>/{id}</b></code> <code>(deletes a user by the given id)</code></summary>
 
 ##### Parameters
 
